@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class PostsController extends Controller
     public function index()
     {
         $page_name = "Blog";
-        return view('posts.index', compact('page_name'));
+        return view('app.posts.index', compact('page_name'));
     }
 
     /**

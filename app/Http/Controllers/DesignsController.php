@@ -15,7 +15,7 @@ class DesignsController extends Controller
     public function index()
     {
         $page_name = "Designs";
-        return view('designs.index', compact('page_name'));
+        return view('app.designs.index', compact('page_name'));
     }
 
     /**

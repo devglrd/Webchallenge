@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/designs', 'DesignsController@index');
-Route::get('/posts', 'PostsController@index');
+Route::get('/posts', 'BlogController@index');
 
 
 Auth::routes();
