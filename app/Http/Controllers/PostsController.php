@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Design;
+use App\Post;
 use Illuminate\Http\Request;
 
-class DesignsController extends Controller
+class PostsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class DesignsController extends Controller
      */
     public function index()
     {
-        $page_name = "Designs";
-        return view('designs.index', compact('page_name'));
+        $page_name = "Blog";
+        return view('posts.index', compact('page_name'));
     }
 
     /**
@@ -42,10 +42,10 @@ class DesignsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Design  $design
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Design $design)
+    public function show(Post $post)
     {
         //
     }
@@ -53,10 +53,10 @@ class DesignsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Design  $design
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Design $design)
+    public function edit(Post $post)
     {
         //
     }
@@ -65,10 +65,10 @@ class DesignsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Design  $design
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Design $design)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -76,10 +76,10 @@ class DesignsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Design  $design
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Design $design)
+    public function destroy(Post $post)
     {
         //
     }

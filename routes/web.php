@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/designs', 'DesignsController@index');
+Route::get('/posts', 'PostsController@index');
 
 
 Auth::routes();
