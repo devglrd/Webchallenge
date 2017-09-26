@@ -14,7 +14,9 @@ class DesignsController extends Controller
      */
     public function index()
     {
-        $page_name = "Designs";
+        //get all disagn
+        $allDesign = Design::all()->orderBy('asc');
+
         return view('app.designs.index', compact('page_name'));
     }
 
@@ -83,4 +85,6 @@ class DesignsController extends Controller
     {
         //
     }
+
+
 }
