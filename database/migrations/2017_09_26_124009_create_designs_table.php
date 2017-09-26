@@ -19,7 +19,7 @@ class CreateDesignsTable extends Migration
             $table->longText('content')->nullable();
             $table->integer('level_design');
             $table->integer('state')->default(3);
-            $table->integer('id_user')->nullable()->references('id')->on('users')->onDelete('cascade');
+            $table->integer('id_designer')->nullable()->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
