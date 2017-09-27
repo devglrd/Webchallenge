@@ -1,7 +1,5 @@
 @extends('.layouts.app.app')
 
-@section('content")
-
-
-
+@section('content')
+    Designs !
     @endsection

@@ -21,12 +21,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/designs', 'DesignsController@index')->name('designs');
-Route::get('/blog', 'BlogController@index');
+Route::get('/designs', 'DesignsController@index')->name('designs')->middleware('guest');
+Route::get('/blog', 'BlogController@index')->middleware('guest');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/account', 'UsersController@getDesign')->name('account');
+Route::get('/account', 'UsersController@getDesign')->name('account')->middleware('auth');

@@ -32,12 +32,11 @@
 </head>
 <div id="app">
     <!-- commencer par dev la navbar ensuite passer au content, pour la nav allr  adns partials -->
-    @include('.layouts.dash.partials._nav')
+    @include('.layouts.app.partials._nav')
     @yield('content')
 </div>
 <footer>
-    @include('layouts.dash.partials._script')
-    @include('flashy::message')
+    @include('layouts.app.partials._script')
 </footer>
 </body>
 </html>
