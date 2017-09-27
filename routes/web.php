@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/designs', 'DesignsController@index')->name('designs');
-Route::get('/posts', 'BlogController@index');
+Route::get('/blog', 'BlogController@index');
 
 
 Auth::routes();

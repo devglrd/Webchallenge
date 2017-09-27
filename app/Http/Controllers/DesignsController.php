@@ -15,9 +15,9 @@ class DesignsController extends Controller
     public function index()
     {
         //get all disagn
-        $allDesign = Design::all()->orderBy('asc');
+        $allDesign = Design::all();
 
-        return view('app.designs.index', compact('page_name'));
+        return view('app.designs.index', compact('allDesign'));
     }
 
     /**

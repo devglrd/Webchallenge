@@ -1,3 +1,7 @@
+@extends('.layouts.app.app')
+
+@section('content")
 
 
-{{ $page_name }}
+
+    @endsection
