@@ -15,9 +15,9 @@ class DesignsController extends Controller
     public function index()
     {
         //get all disagn
-        $allDesign = Design::all();
+        $designDispo = Design::all()->where('state', 2);
 
-        return view('app.designs.index', compact('allDesign'));
+        return view('app.designs.index', compact('designDispo'));
     }
 
     /**
@@ -39,6 +39,7 @@ class DesignsController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**

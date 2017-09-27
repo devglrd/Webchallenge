@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,10 +9,10 @@
                 <a class="nav-link" href="{{ url('/home') }}">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Design</a>
+                <a class="nav-link" href="{{ route('designs') }}">Design</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Blog</a>
+                <a class="nav-link disabled" href="{{ route('blog') }}">Blog</a>
             </li>
 
             @guest
@@ -28,7 +28,7 @@
                     {{ Auth::user()->name }}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Votre compte</a>
+                    <a class="dropdown-item" href="{{ route('account') }}">Votre compte</a>
 
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();

@@ -21,8 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/designs', 'DesignsController@index')->name('designs')->middleware('guest');
-Route::get('/blog', 'BlogController@index')->middleware('guest');
+Route::get('/designs', 'DesignsController@index')->name('designs');
+Route::get('/blog', 'BlogController@index')->name('blog');
 
 
 Auth::routes();

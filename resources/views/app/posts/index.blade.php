@@ -1,5 +1,5 @@
 @extends('.layouts.app.app')
 
 @section('content')
-    Designs !
+    Blog
 @endsection
