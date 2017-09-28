@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
         $faker = Factory::create();
 
         for ($i = 0; $i <= 10; $i++){
-            
+
             $users[] = [
                 'name' => $faker->name(rand(8, 12)),
                 'email' => $faker->email(rand(8, 12)),
