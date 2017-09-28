@@ -43364,7 +43364,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Example.vue"
+Component.options.__file = "resources/assets/js/components/Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -43375,9 +43375,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0cb5e1b7", Component.options)
+    hotAPI.createRecord("data-v-51a295d7", Component.options)
   } else {
-    hotAPI.reload("data-v-0cb5e1b7", Component.options)
+    hotAPI.reload("data-v-51a295d7", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -43552,7 +43552,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-0cb5e1b7", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-51a295d7", module.exports)
   }
 }
 
@@ -43560,7 +43560,7 @@ if (false) {
 /* 40 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: \n@import \"app/main\";\n^\n      File to import not found or unreadable: app/main.\nParent style sheet: stdin\n      in /Applications/XAMPP/xamppfiles/htdocs/WebChallenge/resources/assets/sass/app.scss (line 12, column 1)\n    at runLoaders (/Applications/XAMPP/xamppfiles/htdocs/WebChallenge/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /Applications/XAMPP/xamppfiles/htdocs/WebChallenge/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /Applications/XAMPP/xamppfiles/htdocs/WebChallenge/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/Applications/XAMPP/xamppfiles/htdocs/WebChallenge/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (/Applications/XAMPP/xamppfiles/htdocs/WebChallenge/node_modules/sass-loader/lib/loader.js:55:13)\n    at Object.<anonymous> (/Applications/XAMPP/xamppfiles/htdocs/WebChallenge/node_modules/async/dist/async.js:2244:31)\n    at Object.callback (/Applications/XAMPP/xamppfiles/htdocs/WebChallenge/node_modules/async/dist/async.js:906:16)\n    at options.error (/Applications/XAMPP/xamppfiles/htdocs/WebChallenge/node_modules/node-sass/lib/index.js:294:32)");
 
 /***/ })
 /******/ ]);
