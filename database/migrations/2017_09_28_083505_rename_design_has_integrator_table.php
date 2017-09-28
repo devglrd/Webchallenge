@@ -13,7 +13,7 @@ class RenameDesignHasIntegratorTable extends Migration
      */
     public function up()
     {
-        Schema::rename('designs_has_integrator', 'designs_has_integrators');
+        Schema::rename('design_has_integrator', 'designs_has_integrators');
     }
 
     /**
