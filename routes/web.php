@@ -29,4 +29,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/account', 'UsersController@getDesign')->name('account')->middleware('auth');
+Route::get('/account', 'UsersController@getAll')->name('account')->middleware('auth');

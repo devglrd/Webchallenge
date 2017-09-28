@@ -13,7 +13,7 @@ class CreateTableDesignHasIntegrator extends Migration
      */
     public function up()
     {
-        Schema::create('design_has_integrator', function (Blueprint $table) {
+        Schema::create('designs_has_integrators', function (Blueprint $table) {
             $table->integer('id_design');
             $table->integer('id_user');
         });

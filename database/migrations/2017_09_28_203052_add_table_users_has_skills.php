@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RenameDesignHasIntegratorTable extends Migration
+class AddTableUsersHasSkills extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,10 @@ class RenameDesignHasIntegratorTable extends Migration
      */
     public function up()
     {
-        Schema::rename('design_has_integrator', 'designs_has_integrators');
+        Schema::create('users_has_skills', function (Blueprint $table) {
+            $table->integer('id_user');
+            $table->integer('id_skill');
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class RenameDesignHasIntegratorTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('users_has_skills');
     }
 }

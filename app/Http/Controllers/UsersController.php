@@ -3,25 +3,54 @@
 namespace App\Http\Controllers;
 
 use App\Design;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
 
-    public function getDesign(){
+    public function getAll(){
 
-        //On doit recuperer les designs des users
+        $userInfo = $this->getProfilInfo();
 
-        //id current
-        $idCurrent = Auth::id();
+        $userDesign = $this->getDesign();
 
-        //design de l'id current
-
-        $currentDesigner = Design::all()->where('id_designer', $idCurrent);
+        $userSkill = $this->getSkill();
 
         //envoie a la vue
-        return view('app.statics.users.index', compact('currentDesigner'));
+        return view('app.statics.users.index', compact('userDesign', 'userInfo', 'userSkill'));
+    }
+
+    public function getProfilInfo(){
+
+        $idCurreent = Auth::id();
+
+        $currentUser = User::all()->where('id', $idCurreent);
+
+        return $currentUser;
+
+    }
+
+    public function getDesign(){
+
+        $idCurrent = Auth::id();
+
+        $currentDesign = Design::all()->where('id_designer', $idCurrent);
+
+        return $currentDesign;
+
+    }
+
+    public function getSkill(){
+
+        $idCurrent = Auth::id();
+
+        //je recupere les id des skills qui correspond a l'utilisateur
+        $skillIdCurrent = DB::table('users_has_skills')->where('id_user', $idCurrent)->get();
+
+        return $skillIdCurrent;
     }
 
 
