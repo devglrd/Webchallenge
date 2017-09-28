@@ -16,7 +16,7 @@ class BlogController extends Controller
     public function index()
     {
 
-        return view('app.posts.index', compact(''));
+        return view('app.statics.posts.index', compact(''));
     }
 
     /**

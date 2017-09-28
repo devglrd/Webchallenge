@@ -29,13 +29,5 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" >
     </head>
 
-    <body id="app">
-        <!-- commencer par dev la navbar ensuite passer au content, pour la nav allr  adns partials -->
-        @include('.layouts.app.partials._nav')
-        @yield('content')
-    </body>
-
-    <footer>
-        @include('layouts.app.partials._script')
-    </footer>
-</html>
+    <body>
+    @include('.layouts.app.partials._nav')

@@ -17,7 +17,7 @@ class DesignsController extends Controller
         //get all disagn
         $designDispo = Design::all()->where('state', 2);
 
-        return view('app.designs.index', compact('designDispo'));
+        return view('app.statics.designs.index', compact('designDispo'));
     }
 
     /**

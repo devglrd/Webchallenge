@@ -21,7 +21,7 @@ class UsersController extends Controller
         $currentDesigner = Design::all()->where('id_designer', $idCurrent);
 
         //envoie a la vue
-        return view('app.users.index', compact('currentDesigner'));
+        return view('app.statics.users.index', compact('currentDesigner'));
     }
 
 
