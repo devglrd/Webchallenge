@@ -26,7 +26,8 @@
             <div class="col">
                 <h2>Compétences</h2>
                 @foreach($userSkill as $skill)
-                    @endforeach
+                    <button type="button" class="btn btn-success">{{ $skill->name }}</button>
+                @endforeach
             </div>
         </div>
     </div>

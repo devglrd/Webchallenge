@@ -115,7 +115,7 @@
                             <label for="" class="col-md-4 control-label">Compétenes</label>
 
                             <div class="col-md-6">
-                                <select name="skills[]">
+                                <select name="skills[]" multiple>
                                     @foreach($allSkills as $skill)
                                     <option value="{{ $skill->id }}">{{ $skill->name }}</option>
                                     @endforeach

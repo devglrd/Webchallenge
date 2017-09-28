@@ -50,7 +50,19 @@ class UsersController extends Controller
         //je recupere les id des skills qui correspond a l'utilisateur
         $skillIdCurrent = DB::table('users_has_skills')->where('id_user', $idCurrent)->get();
 
-        return $skillIdCurrent;
+        $count = count($skillIdCurrent);
+
+        $count= $count-1;
+
+        //mtn je dois recuperer les names des skills grace a leur id
+        for ($i = 0; $i <= $count; $i ++){
+            $skill = DB::table('skills')->where('id', $skillIdCurrent[$i])->get();
+        }
+
+        dd($skill);
+
+
+        //bon mais la j'en recupere que un :/ alors que j'en ai 2 normalement des competencesa
     }
 
 
