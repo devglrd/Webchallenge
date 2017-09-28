@@ -21,7 +21,7 @@ class SkillsTableSeeder extends Seeder
 
         for ($i = 0; $i <= 20; $i++){
 
-            $skills = [
+            $skills[] = [
                 'name' => $faker->domainWord(rand(8, 12)),
             ];
 
