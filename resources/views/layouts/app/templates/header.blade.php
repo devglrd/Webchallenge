@@ -24,7 +24,6 @@
 
         <title>{{ isset($title) ? $title . ' | ' : '' }}{{ config('app.name') }}</title>
 
-        <script src="{{ asset('js/jquery-3.1.0.min.js') }}" type="text/javascript"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" >
     </head>
