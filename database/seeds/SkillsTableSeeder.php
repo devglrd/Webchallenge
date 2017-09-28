@@ -19,12 +19,11 @@ class SkillsTableSeeder extends Seeder
 
         $faker = Factory::create();
 
-        for ($i = 0; $i <= 20; $i++){
+        for ($i = 0; $i <= 30; $i++){
 
             $skills[] = [
                 'name' => $faker->domainWord(rand(8, 12)),
             ];
-
         }
 
 

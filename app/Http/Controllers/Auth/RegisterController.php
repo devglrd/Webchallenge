@@ -62,10 +62,37 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        //ils faut savoir si on a coché developpeur
+
+        $inte = 0;
+        $designer = 0;
+
+        if (isset($data['designer'])){
+            if ($data['designer'] === 'on') {
+                $designer = 1;
+            }
+        }
+
+        if (isset($data['developpeur'])){
+            if ($data['developpeur'] === 'on') {
+                $inte = 1;
+            }
+        }
+
+
+        // j'ai un autre probleme => en gros la la variable
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'bio' => $data['bio'],
+            'statut' => $data['state'][0],
+            'is_designer' => $designer,
+            'is_integrator' => $inte,
         ]);
+
+
     }
 }

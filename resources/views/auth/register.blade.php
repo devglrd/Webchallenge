@@ -62,6 +62,68 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Parlez nous un peu de vous</label>
+
+                            <div class="col-md-6">
+                                <textarea id="" class="form-control" name="bio" required  placeholder="{{ old('name') }}">
+                            </textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Votre status</label>
+
+                            <div class="col-md-6">
+                                <select name="state[]">
+                                    <option value="Etudiant">Etudiant</option>
+                                    <option value="Pro">Professionel</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                           <div class="col-md-3 col-md-offset-4">
+                               <label for="" class="control-label">Designer</label>
+
+                               <div class="">
+                                   <input type="checkbox" name="designer">
+                               </div>
+                           </div>
+
+                            <div class="col-md-3">
+                                <label for="" class="control-label">Developpeur</label>
+
+                                <div class="">
+                                    <input type="checkbox" name="developpeur" id="developpeur">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Niveau de developpement</label>
+
+                            <div class="col-md-6">
+                                <select name="level_integrator[]" disabled="">
+                                    <option value="Rien">Intermedaire</option>
+                                    <option value="Rien">Bon</option>
+                                    <option value="Rien">Expert</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Compétenes</label>
+
+                            <div class="col-md-6">
+                                <select name="skills[]">
+                                    @foreach($allSkills as $skill)
+                                    <option value="{{ $skill->id }}">{{ $skill->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register
