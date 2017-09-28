@@ -1,4 +1,4 @@
-@extends('layouts.app.app')
+@extends('layouts.app.templates.app')
 
 @section('content')
     <div class="jumbotron">
