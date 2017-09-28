@@ -15,8 +15,8 @@
         <!-- op meto -->
         <meta property="og:image" content="" />
         <meta property="og:description" content="" />
-        <meta property="og:url" content="http://appwhynot.com" />
-        <meta property="og:title" content="WhyNot !" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="" />
 
 
         <!-- CSRF Token -->
