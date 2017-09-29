@@ -20,10 +20,12 @@ class UsersController extends Controller
 
         $userSkill = $this->getSkill();
 
+        $userPost = $this->getPost();
+
         //envoie a la vue
 
 
-        return view('app.statics.users.index', compact('userDesign', 'userInfo', 'userSkill'));
+        return view('app.statics.users.index', compact('userDesign', 'userInfo', 'userSkill', 'userPost'));
     }
 
     public function getProfilInfo(){
@@ -57,7 +59,13 @@ class UsersController extends Controller
         return $user->skills;
     }
 
+    public function getPost(){
+        $idCurrent = Auth::id();
 
+        $user = User::where('id', $idCurrent)->with('posts')->first();
+
+        return $user->posts;
+    }
 
 
 

@@ -31,4 +31,12 @@ class User extends Authenticatable
 
     }
 
+    //un user a un ou plusieurs post
+
+    public function posts(){
+
+        return $this->belongsToMany('App\Post', 'users_has_posts', 'id_user', 'id_post');
+
+    }
+
 }
