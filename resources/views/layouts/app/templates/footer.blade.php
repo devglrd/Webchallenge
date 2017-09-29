@@ -1,6 +1,12 @@
 
-    </body>
-    <footer>
+        <!-- Footer -->
+        <footer class="py-5 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+            </div>
+            <!-- /.container -->
+        </footer>
+
         @include('.layouts.app.partials._script')
         <script>
             $(document).ready(function () {
@@ -8,5 +14,5 @@
                 $('.dropdown-toggle').dropdown()
             });
         </script>
-    </footer>
+    </body>
 </html>
