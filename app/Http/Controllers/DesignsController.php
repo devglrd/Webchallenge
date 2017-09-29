@@ -54,9 +54,13 @@ class DesignsController extends Controller
     {
 
         $design = Design::where('slug', $slug)->firstOrFail();
-        $tags = $this->getTag($slug);
-
-        return view('app.statics.designs.show', compact('design','tags'));
+        $tags = $this->getTags($slug);
+        $countTags = count($tags);
+        if($countTags != "0"){
+            return view('app.statics.designs.show', compact('design','tags'));
+        }else{
+            return view('app.statics.designs.show', compact('design'));
+        }
 
     }
 
@@ -94,7 +98,7 @@ class DesignsController extends Controller
         //
     }
 
-    public function getTag($slug){
+    public function getTags($slug){
 
         $designs = Design::where('slug',$slug)->with('tags')->first();
 

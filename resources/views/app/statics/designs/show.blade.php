@@ -21,8 +21,6 @@
                         <a href="#">Start Bootstrap</a>
                     </div>
                 </div>
-
-
             </div>
 
             @include('.layouts.app.partials._widgets')
