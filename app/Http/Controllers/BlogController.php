@@ -18,7 +18,7 @@ class BlogController extends Controller
     {
         $title = "Blog";
 
-        $posts = Post::all();
+        $posts = DB::table('posts')->orderBy('id', 'desc')->Paginate(4);
 
         return view('.app.statics.blog.index', compact('title', 'posts'));
     }

@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('app.statics.home');
-});
+})->name('/');
 
 Route::resource('designs', 'DesignsController');
 Route::resource('blog', 'BlogController');
