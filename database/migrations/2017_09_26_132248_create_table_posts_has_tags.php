@@ -14,8 +14,8 @@ class CreateTablePostsHasTags extends Migration
     public function up()
     {
         Schema::create('posts_has_tags', function (Blueprint $table) {
-            $table->integer('id_posts');
-            $table->integer('id_tags');
+            $table->integer('id_post');
+            $table->integer('id_tag');
         });
     }
 

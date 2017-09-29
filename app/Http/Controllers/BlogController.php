@@ -53,7 +53,14 @@ class BlogController extends Controller
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
-        return view('.app.statics.blog.show', compact('post'));
+        $tags = $this->getTags($slug);
+        $countTags = count($tags);
+        if($countTags != "0"){
+            return view('.app.statics.blog.show', compact('post', 'tags'));
+
+        }else{
+            return view('.app.statics.blog.show', compact('post'));
+        }
     }
 
     /**
@@ -90,7 +97,13 @@ class BlogController extends Controller
         //
     }
 
+    public function getTags($slug){
 
+        $posts = Post::where('slug', $slug)->with('tags')->first();
+        $tags = $posts->tags;
+        return $tags;
+
+    }
 
 
 
