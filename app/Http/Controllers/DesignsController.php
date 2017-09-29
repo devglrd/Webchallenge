@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Design;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DesignsController extends Controller
 {
@@ -17,8 +18,7 @@ class DesignsController extends Controller
         $title = "Designs";
 
         //get all disagn
-        $designs = Design::all()->where('state', 2);
-
+        $designs = DB::table('designs')->where('state', 2)->orderBy('id', 'desc')->Paginate(4);
         return view('app.statics.designs.index', compact('designs', 'title'));
     }
 

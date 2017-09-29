@@ -7,16 +7,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ url('/') }}">Home
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::is('/') ? 'active' : '' }}" href="{{ route('/') }}">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('designs.index') }}">Designs</a>
+                    <a class="nav-link
+                    {{ Route::is('designs.index') ? 'active' : '' }}
+                    {{ Route::is('designs.create') ? 'active' : '' }}
+                    {{ Route::is('designs.show') ? 'active' : '' }}
+                    {{ Route::is('designs.edit') ? 'active' : '' }}" href="{{ route('designs.index') }}">Designs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
+                    <a class="nav-link
+                    {{ Route::is('blog.index') ? 'active' : '' }}
+                    {{ Route::is('blog.create') ? 'active' : '' }}
+                    {{ Route::is('blog.show') ? 'active' : '' }}
+                    {{ Route::is('blog.edit') ? 'active' : '' }}" href="{{ route('blog.index') }}">Blog</a>
                 </li>
 
             @guest
