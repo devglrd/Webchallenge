@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Design;
+use App\Skill;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,8 @@ class UsersController extends Controller
         $userSkill = $this->getSkill();
 
         //envoie a la vue
+
+
         return view('app.statics.users.index', compact('userDesign', 'userInfo', 'userSkill'));
     }
 
@@ -45,23 +48,13 @@ class UsersController extends Controller
 
     public function getSkill(){
 
+        //l'id de l'utilisateur en cours
         $idCurrent = Auth::id();
 
-        //je recupere les id des skills qui correspond a l'utilisateur
-        $skillIdCurrent = DB::table('users_has_skills')->where('id_user', $idCurrent)->get();
-
-        //mtn je dois recuperer les names des skills grace a leur id
-        // je peux pas faire comme ça
-
-        foreach ($skillIdCurrent as $skill){
-            dd($skill);
-            $skilleur = DB::table('skills')->where('id', $skill->is_skill)->get();
-        }
-
-
-
-
-        //bon mais la j'en recupere que un :/ alors que j'en ai 2 normalement des competencesa
+        //relation avec la tables skills => cela trouve tout les skills de l'id de l'utilisateur
+        $user = User::where('id', $idCurrent)->with('skills')->first();
+        
+        return $user->skills;
     }
 
 

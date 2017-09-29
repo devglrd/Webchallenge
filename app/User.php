@@ -24,4 +24,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function skills(){
+
+        return $this->belongsToMany('App\Skill', 'users_has_skills', 'id_user', 'id_skill');
+
+    }
+
 }
