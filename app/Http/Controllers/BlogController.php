@@ -15,10 +15,10 @@ class BlogController extends Controller
      */
     public function index()
     {
+        $title = "Blog";
 
 
-
-        return view('app.statics.posts.index', compact(''));
+        return view('app.statics.posts.index', compact('title'));
     }
 
     /**

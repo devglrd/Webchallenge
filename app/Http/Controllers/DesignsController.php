@@ -14,10 +14,12 @@ class DesignsController extends Controller
      */
     public function index()
     {
+        $title = "Designs";
+
         //get all disagn
         $designDispo = Design::all()->where('state', 2);
 
-        return view('app.statics.designs.index', compact('designDispo'));
+        return view('app.statics.designs.index', compact('designDispo', 'title'));
     }
 
     /**
