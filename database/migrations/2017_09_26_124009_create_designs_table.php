@@ -21,6 +21,7 @@ class CreateDesignsTable extends Migration
             $table->integer('level_design');
             $table->integer('state')->default(3);
             $table->integer('id_designer')->nullable()->references('id')->on('users')->onDelete('cascade');
+            $table->integer('id_designcategory')->references('id')->on('categories_design')->onDelete('cascade');
             $table->timestamps();
         });
     }

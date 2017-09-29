@@ -29,7 +29,7 @@ class DesignsTableSeeder extends Seeder
                 'level_design'  =>  rand(1, 3),
                 'state'         =>  rand(0, 2),
                 'id_designer'   =>  rand(1,10),
-                'id_category'   =>  rand(1, 30),
+                'id_designcategory'   =>  rand(1, 10),
             ];
 
         }

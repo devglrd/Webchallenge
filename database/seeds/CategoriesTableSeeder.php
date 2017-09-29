@@ -23,7 +23,7 @@ class CategoriesTableSeeder extends Seeder
         for ($i = 0; $i <= 10; $i++){
 
             $tags[] = [
-                'category_design' => $faker->domainWord(rand(8, 12)),
+                'name' => $faker->domainWord(rand(8, 12)),
             ];
 
         }
@@ -40,7 +40,7 @@ class CategoriesTableSeeder extends Seeder
         for ($i = 0; $i <= 10; $i++){
 
             $tags[] = [
-                'category_post' => $faker->domainWord(rand(8, 12)),
+                'name' => $faker->domainWord(rand(8, 12)),
             ];
 
         }

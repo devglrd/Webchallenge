@@ -14,8 +14,26 @@
         </div>
     </div>
 
+    @isset($category)
+        <!-- Tags Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Category</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="#">{{ $category }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    @endisset
+
     @isset($tags)
-        <!-- Categories Widget -->
+        <!-- Tags Widget -->
         <div class="card my-4">
             <h5 class="card-header">Tags</h5>
             <div class="card-body">

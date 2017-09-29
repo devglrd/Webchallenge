@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Design;
 use App\Post;
+use App\PostCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -50,17 +52,23 @@ class BlogController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
-    {
+    public function show($slug){
         $post = Post::where('slug', $slug)->firstOrFail();
-        $tags = $this->getTags($slug);
+
+        // Category's Post
+        $post_id = $post->id;
+        $category = $this->getCategory($post_id);
+
+        // Relation Post as Tags
+        $tags = $this->getTagsOfPost($slug);
         $countTags = count($tags);
         if($countTags != "0"){
-            return view('.app.statics.blog.show', compact('post', 'tags'));
+            return view('.app.statics.blog.show', compact('post','category', 'tags'));
 
         }else{
-            return view('.app.statics.blog.show', compact('post'));
+            return view('.app.statics.blog.show', compact('post','category'));
         }
+
     }
 
     /**
@@ -97,14 +105,19 @@ class BlogController extends Controller
         //
     }
 
-    public function getTags($slug){
+    public function getTagsOfPost($slug){
 
         $posts = Post::where('slug', $slug)->with('tags')->first();
         $tags = $posts->tags;
         return $tags;
-
     }
 
+    public function getCategory($post_id){
 
+        $category = PostCategory::find($post_id)->name;
+
+        $post_category = $category;
+        return $post_category;
+    }
 
 }
