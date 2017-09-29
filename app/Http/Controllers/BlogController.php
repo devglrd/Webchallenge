@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Design;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -17,6 +18,9 @@ class BlogController extends Controller
     {
         $title = "Blog";
 
+        $posts = DB::table('posts')->all();
+
+        dd($posts);
 
         return view('app.statics.posts.index', compact('title'));
     }
