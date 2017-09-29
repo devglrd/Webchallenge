@@ -17,9 +17,9 @@ class DesignsController extends Controller
         $title = "Designs";
 
         //get all disagn
-        $designDispo = Design::all()->where('state', 2);
+        $designs = Design::all()->where('state', 2);
 
-        return view('app.statics.designs.index', compact('designDispo', 'title'));
+        return view('app.statics.designs.index', compact('designs', 'title'));
     }
 
     /**
@@ -50,9 +50,14 @@ class DesignsController extends Controller
      * @param  \App\Design  $design
      * @return \Illuminate\Http\Response
      */
-    public function show(Design $design)
+    public function show($slug)
     {
-        //
+
+        $design = Design::where('slug', $slug)->firstOrFail();
+        $tags = $this->getTag($slug);
+
+        return view('app.statics.designs.show', compact('design','tags'));
+
     }
 
     /**
@@ -87,6 +92,14 @@ class DesignsController extends Controller
     public function destroy(Design $design)
     {
         //
+    }
+
+    public function getTag($slug){
+
+        $designs = Design::where('slug',$slug)->with('tags')->first();
+
+        $tags = $designs->tags;
+        return $tags;
     }
 
 

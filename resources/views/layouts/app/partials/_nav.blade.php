@@ -13,10 +13,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('designs') }}">Designs</a>
+                    <a class="nav-link" href="{{ route('designs.index') }}">Designs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('blog') }}">Blog</a>
+                    <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                 </li>
 
             @guest

@@ -16,16 +16,16 @@ class UsersController extends Controller
 
         $userInfo = $this->getProfilInfo();
 
-        $userDesign = $this->getDesign();
+        $userDesigns = $this->getDesigns();
 
-        $userSkill = $this->getSkill();
+        $userSkills = $this->getSkills();
 
         $userPost = $this->getPost();
 
         //envoie a la vue
 
 
-        return view('app.statics.users.index', compact('userDesign', 'userInfo', 'userSkill', 'userPost'));
+        return view('app.statics.users.index', compact('userInfo', 'userDesigns', 'userSkills' , 'userPost'));
     }
 
     public function getProfilInfo(){
@@ -38,7 +38,7 @@ class UsersController extends Controller
 
     }
 
-    public function getDesign(){
+    public function getDesigns(){
 
         $idCurrent = Auth::id();
 
@@ -48,14 +48,11 @@ class UsersController extends Controller
 
     }
 
-    public function getSkill(){
-
-        //l'id de l'utilisateur en cours
+    public function getSkills(){
         $idCurrent = Auth::id();
 
-        //relation avec la tables skills => cela trouve tout les skills de l'id de l'utilisateur
         $user = User::where('id', $idCurrent)->with('skills')->first();
-        
+
         return $user->skills;
     }
 

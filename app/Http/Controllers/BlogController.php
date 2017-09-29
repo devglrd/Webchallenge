@@ -20,7 +20,7 @@ class BlogController extends Controller
 
         $posts = Post::all();
 
-        return view('app.statics.posts.index', compact('title', 'posts'));
+        return view('.app.statics.blog.index', compact('title', 'posts'));
     }
 
     /**
@@ -50,9 +50,10 @@ class BlogController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($slug)
     {
-        //
+        $post = Post::where('slug', $slug)->firstOrFail();
+        return view('.app.statics.blog.show', compact('post'));
     }
 
     /**

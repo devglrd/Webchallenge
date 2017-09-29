@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableDesignHasIntegrator extends Migration
+class CreateTableDesignsHasIntegrators extends Migration
 {
     /**
      * Run the migrations.
@@ -26,6 +26,6 @@ class CreateTableDesignHasIntegrator extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('design_has_integrator');
+        Schema::dropIfExists('designs_has_integrators');
     }
 }

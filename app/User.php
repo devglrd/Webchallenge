@@ -27,8 +27,7 @@ class User extends Authenticatable
 
     public function skills(){
 
-        return $this->belongsToMany('App\Skill', 'users_has_skills', 'id_user', 'id_skill');
-
+        return $this->belongsToMany('App\Skill', 'users_has_skills','id_user', 'id_skill');
     }
 
     //un user a un ou plusieurs post

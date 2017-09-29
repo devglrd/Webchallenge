@@ -21,8 +21,8 @@ Route::get('/', function () {
     return view('app.statics.home');
 });
 
-Route::get('/designs', 'DesignsController@index')->name('designs');
-Route::get('/blog', 'BlogController@index')->name('blog');
+Route::resource('designs', 'DesignsController');
+Route::resource('blog', 'BlogController');
 
 
 Auth::routes();

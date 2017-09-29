@@ -24,6 +24,7 @@ class DesignsTableSeeder extends Seeder
 
             $design[] = [
                 'title'         =>  $faker->sentence(rand(8, 12)),
+                'slug'          =>  $faker->slug(),
                 'content'       =>  $faker->paragraphs(rand(15, 20), true),
                 'level_design'  =>  rand(1, 3),
                 'state'         =>  rand(0, 2),

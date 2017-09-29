@@ -5,7 +5,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col">
                 <h2>Mes designs</h2>
-                @foreach($userDesign as $design)
+                @foreach($userDesigns as $design)
                     <div class="card">
                         <strong>Titre du design</strong><br><br>{{ $design->title }}
                         <strong>Contenue du design</strong><br><br>{{ $design->content }}
@@ -25,7 +25,7 @@
             </div>
             <div class="col">
                 <h2>Compétences</h2>
-                @foreach($userSkill as $skill)
+                @foreach($userSkills as $skill)
                     <button type="button" class="btn btn-success">{{ $skill->name }}</button>
                 @endforeach
             </div>
