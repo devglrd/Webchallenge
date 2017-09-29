@@ -18,11 +18,9 @@ class BlogController extends Controller
     {
         $title = "Blog";
 
-        $posts = DB::table('posts')->all();
+        $posts = Post::all();
 
-        dd($posts);
-
-        return view('app.statics.posts.index', compact('title'));
+        return view('app.statics.posts.index', compact('title', 'posts'));
     }
 
     /**
