@@ -21,9 +21,10 @@ class PostsTableSeeder extends Seeder
         for( $i = 0 ; $i < 10 ;$i++){
 
             $posts[] =[
-                'title' => $faker->sentence(),
-                'content' => $faker->text($maxNbChars = 191),
-                'id_user' => rand(0, 10),
+                'title'     =>  $faker->sentence(),
+                'slug'      =>  $faker->slug(),
+                'content'   =>  $faker->text($maxNbChars = 191),
+                'id_user'   =>  rand(0, 10)
             ];
 
         }
