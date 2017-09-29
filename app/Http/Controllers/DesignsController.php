@@ -29,7 +29,10 @@ class DesignsController extends Controller
      */
     public function create()
     {
-        //
+
+        $design = new Design();
+
+        return view('app.statics.designs.create', compact('design'));
     }
 
     /**
@@ -40,7 +43,31 @@ class DesignsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = [
+            "unique" => "Ce que vous voulez ajouté est deja utilisé !",
+            "required" => "Ce :attribute est requis !",
+        ];
+
+        $this->validate($request, ["title" => "required",
+            "content" => "required|string",
+            "level_design" => "required|string"], $message);
+
+
+        $slug = str_replace(' ', '-', $request->title);
+
+        dd($slug);
+
+        Design::create([
+            "title" => $request->name,
+            "content" => $request->client,
+            "slug" => $request->interlocuteur,
+            "adresse" => $request->adresse,
+            "ville" => $request->ville,
+            "pays" => $request->pays,
+            "type" => $request->type,
+            "description" => $request->description,
+            "user_id" => $request->user()->id
+        ]);
 
     }
 

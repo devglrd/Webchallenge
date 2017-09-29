@@ -22,6 +22,11 @@
                     <br>
                     <button type="button" class="btn btn-primary">{{ $info->statut }}</button>
                 @endforeach
+                <div class="mt-4">
+                    <a type="button" class="btn btn-outline-secondary" href="{{ route('user.edit', $id = Auth::id()) }}">
+                        Modifier mes informations
+                    </a>
+                </div>
             </div>
             <div class="col">
                 <h2>Compétences</h2>

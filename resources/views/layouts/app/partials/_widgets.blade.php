@@ -54,9 +54,18 @@
 
     <!-- Side Widget -->
     <div class="card my-4">
-        <h5 class="card-header">Side Widget</h5>
+        <h5 class="card-header">Ajouter un desig !</h5>
         <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            Ajouter votre design, si il obtient assez de vote il sera selectionner pour etre integré par des devellopeur cette semaine !
+            <br>
+
+            <a type="button" class="btn btn-outline-info" href="{{ route('designs.create') }}">
+            @if(Route::is('designs.index') or Route::is('designs.create') or Route::is('designs.show') or Route::is('designs.edit'))
+                Ajouter un design
+                @else
+                Ajouter un article
+                @endif
+            </a>
         </div>
     </div>
 
