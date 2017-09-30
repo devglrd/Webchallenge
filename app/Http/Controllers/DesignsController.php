@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Design;
+use App\DesignCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -67,14 +68,19 @@ class DesignsController extends Controller
      */
     public function show($slug)
     {
-
         $design = Design::where('slug', $slug)->firstOrFail();
+
+        // Category
+        $category_id = $design->id;
+        $category = $this->getCategory($category_id);
+
+        // Tags
         $tags = $this->getTags($slug);
         $countTags = count($tags);
         if($countTags != "0"){
-            return view('app.statics.designs.show', compact('design','tags'));
+            return view('app.statics.designs.show', compact('design', 'category','tags'));
         }else{
-            return view('app.statics.designs.show', compact('design'));
+            return view('app.statics.designs.show', compact('design', 'category'));
         }
 
     }
@@ -115,11 +121,17 @@ class DesignsController extends Controller
 
     public function getTags($slug){
 
-        $designs = Design::where('slug',$slug)->with('tags')->first();
+        $designs = Design::where('slug', $slug)->with('tags')->first();
 
         $tags = $designs->tags;
         return $tags;
     }
 
+    public function getCategory($post_id){
 
+        $category = DesignCategory::find($post_id)->name;
+
+        $design_category = $category;
+        return $design_category;
+    }
 }
