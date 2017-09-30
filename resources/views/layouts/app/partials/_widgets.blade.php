@@ -52,24 +52,29 @@
         </div>
     @endisset
 
+    @if(Route::is('designs.index') or Route::is('designs.create') or Route::is('designs.show') or Route::is('designs.edit'))
     <!-- Side Widget -->
     <div class="card my-4">
-        <h5 class="card-header">Ajouter un desig !</h5>
+        <h5 class="card-header">Ajouter un design !</h5>
         <div class="card-body">
             Ajouter votre design, si il obtient assez de vote il sera selectionner pour etre integré par des devellopeur cette semaine !
             <br>
-
-            @if(Route::is('designs.index') or Route::is('designs.create') or Route::is('designs.show') or Route::is('designs.edit'))
             <a type="button" class="btn btn-outline-info mt-4" href="{{ route('designs.create') }}">
                 Ajouter un design
             </a>
-            @else
-            <a type="button" class="btn btn-outline-info mt-4" href="{{ route('blog.create') }}">
-                Ajouter un article
-            </a>
-                @endif
-            </a>
         </div>
     </div>
+    @else
+        <div class="card my-4">
+            <h5 class="card-header">Ajouter un article !</h5>
+            <div class="card-body">
+                Ajouter votre article, si il obtient assez de vote il sera selectionner pour etre integré par des devellopeur cette semaine !
+                <br>
+                <a type="button" class="btn btn-outline-info mt-4" href="{{ route('blog.create') }}">
+                    Ajouter un article
+                </a>
+            </div>
+        </div>
+    @endif
 
 </div>
