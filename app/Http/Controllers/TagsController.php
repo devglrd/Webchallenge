@@ -10,7 +10,7 @@ class TagsController extends Controller
 
     public function show($tag){
 
-        $posts = Tag::where('tag', $tag)->with('posts')->first()->posts;
+        $posts = Tag::where('name', $tag)->with('posts')->first()->posts;
         return view('.app.statics.blog.tags', compact('posts'));
     }
 }
