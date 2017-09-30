@@ -55,19 +55,7 @@ class DesignsController extends Controller
 
         $slug = str_replace(' ', '-', $request->title);
 
-        dd($slug);
-
-        Design::create([
-            "title" => $request->name,
-            "content" => $request->client,
-            "slug" => $request->interlocuteur,
-            "adresse" => $request->adresse,
-            "ville" => $request->ville,
-            "pays" => $request->pays,
-            "type" => $request->type,
-            "description" => $request->description,
-            "user_id" => $request->user()->id
-        ]);
+        dd($request->title);
 
     }
 

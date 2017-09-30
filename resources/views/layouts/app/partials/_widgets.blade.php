@@ -59,11 +59,14 @@
             Ajouter votre design, si il obtient assez de vote il sera selectionner pour etre integré par des devellopeur cette semaine !
             <br>
 
-            <a type="button" class="btn btn-outline-info" href="{{ route('designs.create') }}">
             @if(Route::is('designs.index') or Route::is('designs.create') or Route::is('designs.show') or Route::is('designs.edit'))
+            <a type="button" class="btn btn-outline-info mt-4" href="{{ route('designs.create') }}">
                 Ajouter un design
-                @else
+            </a>
+            @else
+            <a type="button" class="btn btn-outline-info mt-4" href="{{ route('blog.create') }}">
                 Ajouter un article
+            </a>
                 @endif
             </a>
         </div>

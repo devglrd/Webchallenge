@@ -22,6 +22,8 @@ Route::get('/', function () {
 })->name('/');
 
 Route::resource('designs', 'DesignsController');
+Route::get('designs/create', 'DesignsController@create')->name('designs.create')->middleware('auth');
+Route::get('blog/create', 'BlogController@create')->name('blog.create')->middleware('auth');
 Route::resource('blog', 'BlogController');
 
 

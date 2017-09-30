@@ -67,6 +67,8 @@ class UsersController extends Controller
 
     public function edit($id){
 
+        $this->middleware('auth');
+
         $idcurrent = Auth::id();
 
         // je veux tout les competences qui ne sont pas a l'utilisateur
