@@ -17,8 +17,9 @@
                         <p class="card-text">{{ $design->content }}</p>
                     </div>
                     <div class="card-footer text-muted">
-                        Posted on January 1, 2017 by
-                        <a href="#">Start Bootstrap</a>
+                        Posted on
+                        <br>
+                        by <a href="#">{{ $design->designer['name'] }}</a>
                     </div>
                 </div>
             </div>

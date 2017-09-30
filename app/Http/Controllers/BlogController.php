@@ -21,9 +21,9 @@ class BlogController extends Controller
     {
         $title = "Blog";
 
-        $posts = DB::table('posts')->orderBy('id', 'desc')->Paginate(4);
+        $post = Post::with('author')->Paginate(4);
 
-        return view('.app.statics.blog.index', compact('title', 'posts'));
+        return view('.app.statics.blog.index', compact('title', 'post'));
     }
 
     /**
@@ -54,23 +54,27 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($slug){
-        $post = Post::where('slug', $slug)->firstOrFail();
+
+        $postAll = Post::where('slug', $slug)->with('author')->get();
+
+        $post = $postAll[0];
+
 
         // Category's Post
         $post_id = $post->id;
         $category = $this->getCategory($post_id);
 
         // Author
-        $author = $this->getAuthor($post_id);
+        //$author = $this->getAuthor($post_id);
 
         // Relation Post as Tags
         $tags = $this->getTagsOfPost($slug);
         $countTags = count($tags);
         if($countTags != "0"){
-            return view('.app.statics.blog.show', compact('post','category', 'author', 'tags'));
+            return view('.app.statics.blog.show', compact('post','category', 'tags'));
 
         }else{
-            return view('.app.statics.blog.show', compact('post','category', 'author'));
+            return view('.app.statics.blog.show', compact('post','category'));
         }
 
     }
@@ -110,8 +114,9 @@ class BlogController extends Controller
     }
 
     public function getAuthor($id){
-        $author = User::where('id', $id)->first()->name;
-        return $author;
+        $post = Post::with('author')->get();
+
+        return $post->author;
     }
 
     public function getTagsOfPost($slug){

@@ -23,8 +23,9 @@
                             <a href="{{ route('designs.show', $design->slug) }}" class="btn btn-primary">Read More &rarr;</a>
                         </div>
                         <div class="card-footer text-muted">
-                            Posted on January 1, 2017 by
-                            <a href="#">Start Bootstrap</a>
+                            Posted on
+                            <br>
+                            by <a href="#">{{ $design->designer['name'] }}</a>
                         </div>
                     </div>
             @endforeach

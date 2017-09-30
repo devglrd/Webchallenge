@@ -19,7 +19,10 @@ class DesignsController extends Controller
         $title = "Designs";
 
         //get all disagn
-        $designs = DB::table('designs')->where('state', 2)->orderBy('id', 'desc')->Paginate(4);
+        //$designs = DB::table('designs')->where('state', 2)->orderBy('id', 'desc')->Paginate(4);
+
+        $designs = Design::with('designer')->Paginate(4);
+
         return view('app.statics.designs.index', compact('designs', 'title'));
     }
 
@@ -68,7 +71,11 @@ class DesignsController extends Controller
      */
     public function show($slug)
     {
-        $design = Design::where('slug', $slug)->firstOrFail();
+       // $design = Design::where('slug', $slug)->firstOrFail();
+
+        $designAll = Design::where('slug', $slug)->with('designer')->get();
+
+        $design = $designAll[0];
 
         // Category
         $category_id = $design->id;

@@ -17,8 +17,9 @@
                         <p class="card-text">{{ $post->content }}</p>
                     </div>
                     <div class="card-footer text-muted">
-                        Posted on January 1, 2017 by
-                        <a href="#">{{ $author }}</a>
+                        Posted on {{ $post->created_at }}
+                        <br>
+                        By <a href="">{{ $post->author['name'] }}</a>
                     </div>
                 </div>
 
