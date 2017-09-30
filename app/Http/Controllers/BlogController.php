@@ -130,6 +130,7 @@ class BlogController extends Controller
         $category = PostCategory::find($post_id)->name;
 
         $post_category = $category;
+
         return $post_category;
     }
 

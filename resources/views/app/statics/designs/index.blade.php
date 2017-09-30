@@ -25,7 +25,7 @@
                         <div class="card-footer text-muted">
                             Posted on
                             <br>
-                            by <a href="#">{{ $design->designer['name'] }}</a>
+                            by <a href="{{ route('user.show', $id = $design->designer['name']) }}">{{ $design->designer['name'] }}</a>
                         </div>
                     </div>
             @endforeach

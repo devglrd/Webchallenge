@@ -32,6 +32,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/view/{name}', 'UsersController@viewProfil')->name('user.show');
 Route::get('/account', 'UsersController@getAll')->name('account')->middleware('auth');
 Route::get('/account/{id}', 'UsersController@edit')->name('user.edit')->middleware('auth');
 Route::post('/account/{id}', 'UsersController@update')->name('user.update')->middleware('auth');

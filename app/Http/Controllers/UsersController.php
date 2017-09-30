@@ -14,52 +14,71 @@ class UsersController extends Controller
 
     public function getAll(){
 
-        $userInfo = $this->getProfilInfo();
+        $title = 'Votre compte';
 
-        $userDesigns = $this->getDesigns();
+        $idCurrent = Auth::id();
 
-        $userSkills = $this->getSkills();
+        $id = $idCurrent;
 
-        $userPost = $this->getPost();
+        $userInfo = $this->getProfilInfo($id);
+
+        $userDesigns = $this->getDesigns($id);
+
+        $userSkills = $this->getSkills($id);
+
+        $userPost = $this->getPost($id);
 
         //envoie a la vue
 
 
-        return view('app.statics.users.index', compact('userInfo', 'userDesigns', 'userSkills' , 'userPost'));
+        return view('app.statics.users.index', compact('userInfo', 'userDesigns', 'userSkills' , 'userPost', 'title'));
     }
 
-    public function getProfilInfo(){
 
-        $idCurreent = Auth::id();
+    public function viewProfil($name){
 
-        $currentUser = User::all()->where('id', $idCurreent);
+        $user = User::where('name', $name)->first();
+
+        $id = $user->id;
+
+        $userDesigns = $this->getDesigns($id);
+
+        $userSkills = $this->getSkills($id);
+
+        $userPost = $this->getPost($id);
+
+        return view( 'app.statics.users.show', compact('user', 'userDesigns', 'userSkills', 'userPost'));
+    }
+
+
+    public function getProfilInfo($id){
+
+
+        $currentUser = User::all()->where('id', $id);
 
         return $currentUser;
 
     }
 
-    public function getDesigns(){
+    public function getDesigns($id){
 
-        $idCurrent = Auth::id();
 
-        $currentDesign = Design::all()->where('id_designer', $idCurrent);
+        $currentDesign = Design::all()->where('id_designer', $id);
 
         return $currentDesign;
 
     }
 
-    public function getSkills(){
-        $idCurrent = Auth::id();
+    public function getSkills($id){
 
-        $user = User::where('id', $idCurrent)->with('skills')->first();
+        $user = User::where('id', $id)->with('skills')->first();
 
         return $user->skills;
     }
 
-    public function getPost(){
-        $idCurrent = Auth::id();
+    public function getPost($id){
 
-        $user = User::where('id', $idCurrent)->with('posts')->first();
+        $user = User::where('id', $id)->with('posts')->first();
 
         return $user->posts;
     }
@@ -69,15 +88,13 @@ class UsersController extends Controller
 
         $this->middleware('auth');
 
-        $idcurrent = Auth::id();
-
         // je veux tout les competences qui ne sont pas a l'utilisateur
         $allSkill = Skill::all();
 
         //les skills qu'il a
         $userSkill = $this->getSkills();
 
-        $userCurrent = User::where('id', $idcurrent)->first();
+        $userCurrent = User::where('id', $id)->first();
 
 
         // Si $userSkill->id === $skillWithoutUserSkill->id{remove from tableau}

@@ -19,7 +19,7 @@
                     <div class="card-footer text-muted">
                         Posted on {{ $post->created_at }}
                         <br>
-                        By <a href="">{{ $post->author['name'] }}</a>
+                        By <a href="{{ route('user.show', $id = $post->author['name']) }}">{{ $post->author['name'] }}</a>
                     </div>
                 </div>
 
