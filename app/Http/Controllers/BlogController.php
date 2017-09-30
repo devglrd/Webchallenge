@@ -107,8 +107,7 @@ class BlogController extends Controller
 
     public function getTagsOfPost($slug){
 
-        $posts = Post::where('slug', $slug)->with('tags')->first();
-        $tags = $posts->tags;
+        $tags = Post::where('slug', $slug)->with('tags')->first()->tags;
         return $tags;
     }
 
