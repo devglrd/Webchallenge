@@ -59,8 +59,8 @@ class DesignsController extends Controller
 
         $slug = str_replace(' ', '-', $request->title);
 
-        dd($request->title);
 
+        return redirect()->route('design.index');
     }
 
     /**
