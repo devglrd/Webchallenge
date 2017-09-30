@@ -6,6 +6,7 @@ use App\Category;
 use App\Design;
 use App\Post;
 use App\PostCategory;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -59,14 +60,17 @@ class BlogController extends Controller
         $post_id = $post->id;
         $category = $this->getCategory($post_id);
 
+        // Author
+        $author = $this->getAuthor($post_id);
+
         // Relation Post as Tags
         $tags = $this->getTagsOfPost($slug);
         $countTags = count($tags);
         if($countTags != "0"){
-            return view('.app.statics.blog.show', compact('post','category', 'tags'));
+            return view('.app.statics.blog.show', compact('post','category', 'author', 'tags'));
 
         }else{
-            return view('.app.statics.blog.show', compact('post','category'));
+            return view('.app.statics.blog.show', compact('post','category', 'author'));
         }
 
     }
@@ -103,6 +107,11 @@ class BlogController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function getAuthor($id){
+        $author = User::where('id', $id)->first()->name;
+        return $author;
     }
 
     public function getTagsOfPost($slug){

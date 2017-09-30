@@ -18,7 +18,7 @@ class CreateTablePosts extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('content');
-            $table->integer('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('id_author')->references('id')->on('users')->onDelete('cascade');
             $table->integer('id_postcategory')->references('id')->on('categories_post')->onDelete('cascade');
             $table->timestamps();
         });
