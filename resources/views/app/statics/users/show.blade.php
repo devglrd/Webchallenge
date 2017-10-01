@@ -6,11 +6,9 @@
             <div class="col-12 my-4">
                 <h2>{{ $user->name }}</h2>
                 <div class="col-12">
-                    @foreach($userInfo as $info)
-                        <p class="font-weight-bold">Email : {{ $info->email }}</p>
-                        <p class="font-weight-bold">Description : {{ $info->bio }}</p>
-                        <button type="button" class="btn btn-primary">{{ $info->statut }}</button>
-                    @endforeach
+                        <p class="font-weight-bold">Email : {{ $user->email }}</p>
+                        <p class="font-weight-bold">Description : {{ $user->bio }}</p>
+                        <button type="button" class="btn btn-primary">{{ $user->statut }}</button>
                 </div>
             </div>
             <div class="col-12 my-4">

@@ -60,11 +60,8 @@
                     Ajouter un {{ $section }}, Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cumque
                     <br>
                     @if($section === 'designs')
-
                         <strong class="{{ !isset($is_designer) ? 'mt-3' : ''}}" >{{ !isset($is_designer) ? 'Vous devez etre designer pour ajouter un designe !' : '' }}</strong>
-
                         <br>
-
                         <a type="button" class="btn {{ !isset($is_designer) ? 'btn-outline-danger' : 'btn-outline-success' }} mt-4 {{ !isset($is_designer) ? 'disabled' : '' }}" href="{{ route($section.'.create')}}">
                         Ajouter un {{ $section }}
                         </a>

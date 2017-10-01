@@ -22,6 +22,7 @@ class DesignsController extends Controller
         $items = Design::with('author')->orderBy('id', 'desc')->Paginate(4);
 
         $user = User::where('id', Auth::id())->get();
+
         if ($user[0]->is_designer == 1){
             $is_designer = 'designer';
         }
