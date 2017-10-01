@@ -24,8 +24,9 @@ class PostsTableSeeder extends Seeder
                 'title'             =>  $faker->sentence(),
                 'slug'              =>  $faker->slug(),
                 'content'           =>  $faker->text($maxNbChars = 191),
-                'id_author'           =>  rand(0, 10),
-                'id_postcategory'   =>  rand(0, 10)
+                'id_author'         =>  rand(0, 10),
+                'id_postcategory'   =>  rand(0, 10),
+                'created_at'        =>  $faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
             ];
 
         }

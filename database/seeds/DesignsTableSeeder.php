@@ -23,13 +23,14 @@ class DesignsTableSeeder extends Seeder
         for ($i = 0; $i <= 10; $i++){
 
             $design[] = [
-                'title'         =>  $faker->sentence(rand(8, 12)),
-                'slug'          =>  $faker->slug(),
-                'content'       =>  $faker->paragraphs(rand(15, 20), true),
-                'level_design'  =>  rand(1, 3),
-                'state'         =>  rand(0, 2),
-                'id_designer'   =>  rand(1,10),
-                'id_designcategory'   =>  rand(1, 10),
+                'title'                 =>  $faker->sentence(rand(8, 12)),
+                'slug'                  =>  $faker->slug(),
+                'content'               =>  $faker->text($maxNbChars = 191),
+                'level_design'          =>  rand(1, 3),
+                'state'                 =>  rand(0, 2),
+                'id_designer'           =>  rand(1,10),
+                'id_designcategory'     =>  rand(1, 10),
+                'created_at'            =>  $faker->dateTime($max = 'now', $timezone = date_default_timezone_get())
             ];
 
         }

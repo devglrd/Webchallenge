@@ -21,9 +21,9 @@ class BlogController extends Controller
     {
         $title = "Blog";
 
-        $post = Post::with('author')->Paginate(4);
+        $posts = Post::with('author')->Paginate(4);
 
-        return view('.app.statics.blog.index', compact('title', 'post'));
+        return view('.app.statics.blog.index', compact('title', 'posts'));
     }
 
     /**
@@ -66,15 +66,11 @@ class BlogController extends Controller
         $post_id = $post->id;
         $category = $this->getCategory($post_id);
 
-        // Author
-        //$author = $this->getAuthor($post_id);
-
         // Relation Post as Tags
         $tags = $this->getTagsOfPost($slug);
         $countTags = count($tags);
         if($countTags != "0"){
             return view('.app.statics.blog.show', compact('post','category', 'tags'));
-
         }else{
             return view('.app.statics.blog.show', compact('post','category'));
         }
@@ -113,12 +109,6 @@ class BlogController extends Controller
     public function destroy(Post $post)
     {
         //
-    }
-
-    public function getAuthor($id){
-        $post = Post::with('author')->get();
-
-        return $post->author;
     }
 
     public function getTagsOfPost($slug){

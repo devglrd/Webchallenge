@@ -22,20 +22,17 @@
                             <a href="{{ route('blog.show', $post->slug) }}" class="btn btn-primary">Read More &rarr;</a>
                         </div>
                         <div class="card-footer text-muted">
-                            Posted on January 1, 2017 by
-                            <a href="#">Start Bootstrap</a>
+                            Posted on {{ $post->created_at }} By <a href="{{ route('user.show', $id = $post->author['name']) }}">{{ $post->author['name'] }}</a>
                         </div>
                     </div>
             @endforeach
 
-            {{--
                 <!-- Pagination -->
                     <ul class="pagination justify-content-center mb-4">
-                        {{ $posts->links() }}
+                        {{-- {{ $posts->links() }} --}}
                     </ul>
 
                 </div>
-             --}}
 
 
             @include('.layouts.app.partials._widgets')

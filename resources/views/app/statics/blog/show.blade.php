@@ -17,9 +17,7 @@
                         <p class="card-text">{{ $post->content }}</p>
                     </div>
                     <div class="card-footer text-muted">
-                        Posted on {{ $post->created_at }}
-                        <br>
-                        By <a href="{{ route('user.show', $id = $post->author['name']) }}">{{ $post->author['name'] }}</a>
+                        Posted on {{ $post->created_at }} By <a href="{{ route('user.show', $id = $post->author['name']) }}">{{ $post->author['name'] }}</a>
                     </div>
                 </div>
 
