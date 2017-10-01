@@ -52,31 +52,32 @@
         </div>
     @endisset
 
-    @if(Route::is('designs.index') or Route::is('designs.create') or Route::is('designs.show') or Route::is('designs.edit'))
-    <!-- Side Widget -->
-    <div class="card my-4">
-        <h5 class="card-header">Ajouter un design !</h5>
-        <div class="card-body">
-            Ajouter votre design, si il obtient assez de vote il sera selectionner pour etre integré par des devellopeur cette semaine !
-            <br>
-            <br>
-            <strong>Pour cela vous devez etre designer !</strong>
-            <a type="button" class="btn {{ isset($design) ? 'btn-outline-danger' : 'btn-outline-success' }} mt-4 {{ isset($design) ? 'disabled' : '' }}" href="{{ route('designs.create') }}">
-                Ajouter un design
-            </a>
-        </div>
-    </div>
-    @elseif(Route::is('blog.index') or Route::is('blog.create') or Route::is('blog.show') or Route::is('blog.edit'))
+    @if(!empty(Auth::id()))
+        @if(Route::is('designs.index') or Route::is('designs.create') or Route::is('designs.show') or Route::is('designs.edit'))
+        <!-- Side Widget -->
         <div class="card my-4">
-            <h5 class="card-header">Ajouter un article !</h5>
+            <h5 class="card-header">Ajouter un design !</h5>
             <div class="card-body">
-                Ajouter votre article, Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cumque
+                Ajouter votre design, si il obtient assez de vote il sera selectionner pour etre integré par des devellopeur cette semaine !
                 <br>
-                <a type="button" class="btn btn-outline-info mt-4" href="{{ route('blog.create') }}">
-                    Ajouter un article
+                <br>
+                <strong>Pour cela vous devez etre designer !</strong>
+                <a type="button" class="btn {{ isset($design) ? 'btn-outline-danger' : 'btn-outline-success' }} mt-4 {{ isset($design) ? 'disabled' : '' }}" href="{{ route('designs.create') }}">
+                    Ajouter un design
                 </a>
             </div>
         </div>
+        @elseif(Route::is('blog.index') or Route::is('blog.create') or Route::is('blog.show') or Route::is('blog.edit'))
+            <div class="card my-4">
+                <h5 class="card-header">Ajouter un article !</h5>
+                <div class="card-body">
+                    Ajouter votre article, Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cumque
+                    <br>
+                    <a type="button" class="btn btn-outline-info mt-4" href="{{ route('blog.create') }}">
+                        Ajouter un article
+                    </a>
+                </div>
+            </div>
+        @endif
     @endif
-
 </div>
