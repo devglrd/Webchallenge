@@ -8,6 +8,7 @@ use App\Post;
 use App\PostCategory;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
@@ -46,7 +47,27 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = [
+            "required" => "Ce :attribute est requis !",
+        ];
+
+        $this->validate($request, ["title" => "required",
+            "content" => "required|string"], $message);
+
+
+        $title = $request->title;
+
+        $slug = str_replace(' ', '-', $title);
+
+        Post::create([
+            "title" => $request->title,
+            "slug" => $slug,
+            "content" => $request->content,
+            'id_author' => Auth::id(),
+            'id_postcategory' => rand(1, 10)
+        ]);
+
+        return redirect()->route('blog.index');
     }
 
     /**

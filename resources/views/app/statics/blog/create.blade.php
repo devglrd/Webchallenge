@@ -18,7 +18,7 @@
                                 <label for="name" class="col-md-4 control-label">Titre de l'article</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('title') ?: $post->title }}" required autofocus>
+                                    <input id="name" type="text" class="form-control" name="title" value="{{ old('title') ?: $post->title }}" required autofocus>
                                 </div>
                             </div>
 
@@ -26,23 +26,12 @@
                                 <label for="" class="col-md-4 control-label">Contenue de l'article</label>
 
                                 <div class="col-md-6">
-                                    <textarea style="color: black" id="" class="form-control" name="bio" required>
+                                    <textarea style="color: black" id="" class="form-control" name="content" required>
                                         {{ old('content') ?: $post->content }}
                                     </textarea>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="" class="col-md-4 control-label">Categories</label>
-
-                                <div class="col-md-6">
-                                    <select name="level_integrator[]" disabled="">
-                                        <option value="1"></option>
-                                        <option value="2">Bon</option>
-                                        <option value="3">Expert</option>
-                                    </select>
-                                </div>
-                            </div>
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
