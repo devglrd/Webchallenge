@@ -24,9 +24,7 @@ class TagsTableSeeder extends Seeder
         for ($i = 0; $i < 10; $i++){
 
             $tags[] = [
-                'name' => $faker->domainWord(rand(8, 12)),
-                'is_design' => rand(0, 1),
-                'is_posts' => rand(0, 1)
+                'name' => $faker->domainWord(rand(8, 12))
             ];
 
         }
