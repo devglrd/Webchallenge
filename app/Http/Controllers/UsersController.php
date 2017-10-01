@@ -30,6 +30,7 @@ class UsersController extends Controller
 
         //envoie a la vue
 
+        dd($userInfo);
 
         return view('app.statics.users.index', compact('userInfo', 'userDesigns', 'userSkills' , 'userPost', 'title'));
     }
@@ -109,14 +110,14 @@ class UsersController extends Controller
         $inte = 0;
         $designer = 0;
 
-        if (isset($data['designer'])){
-            if ($request['designer'] === 'on') {
+        if (isset($request->designer)){
+            if ($request->designer === 'on') {
                 $designer = 1;
             }
         }
 
-        if (isset($data['developpeur'])){
-            if ($request['developpeur'] === 'on') {
+        if (isset($request->developpeur)){
+            if ($request->developpeur === 'on') {
                 $inte = 1;
             }
         }
@@ -125,6 +126,7 @@ class UsersController extends Controller
         $count = $count-1;
 
         $user = Auth::id();
+
 
         for ($i = 0;$i <= $count; $i++){
             DB::table('users_has_skills')->insert([

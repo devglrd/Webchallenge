@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Design;
 use App\DesignCategory;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,9 +19,18 @@ class DesignsController extends Controller
     {
         $section = "designs";
 
-        $designs = Design::with('author')->orderBy('id', 'desc')->Paginate(4);
 
-        return view('app.statics.designs.index', compact('designs', 'section'));
+        $designs = Design::with('author')->orderBy('id', 'desc')->Paginate(4);
+        //je veux savoir si la personne connecté est designer
+
+        $user = User::where('id', Auth::id())->get();
+
+        if ($user[0]->is_designer == 1){
+            $is_designer = 'designer';
+        }
+
+
+        return view('app.statics.designs.index', compact('designs', 'section', 'is_designer'));
     }
 
     /**

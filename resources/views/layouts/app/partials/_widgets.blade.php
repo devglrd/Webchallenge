@@ -54,13 +54,28 @@
 
         <!-- Side Widget -->
         <div class="card my-4">
-            <h5 class="card-header">Add {{ $section }}</h5>
+            <h5 class="card-header">Ajouter un {{ $section }} !</h5>
             <div class="card-body">
-                @if(!empty(Auth::id()))
-                    <a type="button" class="btn mt-4" href="{{ route($section.'.create')}}">
+            @if(!empty(Auth::id()))
+                    Ajouter un {{ $section }}, Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cumque
+                    <br>
+                    @if($section === 'designs')
+
+                        <strong class="{{ !isset($is_designer) ? 'mt-3' : ''}}" >{{ !isset($is_designer) ? 'Vous devez etre designer pour ajouter un designe !' : '' }}</strong>
+
+                        <br>
+
+                        <a type="button" class="btn {{ !isset($is_designer) ? 'btn-outline-danger' : 'btn-outline-success' }} mt-4 {{ !isset($is_designer) ? 'disabled' : '' }}" href="{{ route($section.'.create')}}">
                         Ajouter un {{ $section }}
-                    </a>
+                        </a>
+                    @elseif($section === 'posts')
+                        <a type="button" class="btn btn-outline-success mt-4" href="{{ route($section.'.create')}}">
+                            Ajouter un {{ $section }}
+                        </a>
+                    @endif
                 @else
+                    <strong>Vous devez etre connecté pour ajouter un {{ $section }}</strong>
+                    <br>
                     <a type="button" class="btn mt-4" href="{{route('login') }}">
                         Connectez-vous
                     </a>
