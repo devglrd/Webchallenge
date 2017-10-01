@@ -48,7 +48,7 @@ class UsersController extends Controller
 
         return view( 'app.statics.users.show', compact('user', 'userDesigns', 'userSkills', 'userPost'));
     }
-    
+
     public function getProfilInfo($id){
 
 
