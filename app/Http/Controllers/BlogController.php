@@ -22,9 +22,9 @@ class BlogController extends Controller
     {
         $section = "posts";
 
-        $posts = Post::with('author')->orderBy('id', 'desc')->Paginate(4);
+        $items = Post::with('author')->orderBy('id', 'desc')->Paginate(4);
 
-        return view('.app.statics.blog.index', compact('section', 'posts'));
+        return view('.app.statics.blog.index', compact('section', 'items'));
     }
 
     /**
@@ -66,7 +66,7 @@ class BlogController extends Controller
             "slug"              => $slug,
             "content"           => $request->content,
             'id_author'         => Auth::id(),
-            'id_postcategory'   => rand(1, 10)
+            'id_category'       => rand(1, 10)
         ]);
 
         return redirect()->route('blog.index');
@@ -86,7 +86,7 @@ class BlogController extends Controller
         $post = $postAll[0];
 
         // Category's Post
-        $post_id = $post->id_postcategory;
+        $post_id = $post->id_category;
         $category = $this->getCategory($post_id);
 
         // Relation Post as Tags
@@ -142,11 +142,9 @@ class BlogController extends Controller
 
     public function getCategory($post_id){
 
-        $category = PostCategory::find($post_id)->name;
+        $category = Category::find($post_id)->name;
 
-        $post_category = $category;
-
-        return $post_category;
+        return $category;
     }
 
 }

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Design;
-use App\DesignCategory;
 use App\User;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,20 +19,15 @@ class DesignsController extends Controller
     {
         $section = "designs";
 
-
-        $designs = Design::with('author')->orderBy('id', 'desc')->Paginate(4);
-        //je veux savoir si la personne connecté est designer
+        $items = Design::with('author')->orderBy('id', 'desc')->Paginate(4);
 
         $user = User::where('id', Auth::id())->get();
-
-        if (Auth::user()){
-            if ($user[0]->is_designer == 1){
-                $is_designer = 'designer';
-            }
+        if ($user[0]->is_designer == 1){
+            $is_designer = 'designer';
         }
 
+        return view('app.statics.designs.index', compact('items', 'section', 'is_designer'));
 
-        return view('app.statics.designs.index', compact('designs', 'section', 'is_designer'));
     }
 
     /**
@@ -99,8 +94,8 @@ class DesignsController extends Controller
         $design = $designAll[0];
 
         // Category
-        $category_id = $design->id_designcategory;
-        $category = $this->getCategory($category_id);
+        $post_category_id = $design->id_category;
+        $category = $this->getCategory($post_category_id);
 
         // Tags
         $tags = $this->getTags($slug);
@@ -157,7 +152,7 @@ class DesignsController extends Controller
 
     public function getCategory($post_id){
 
-        $category = DesignCategory::find($post_id)->name;
+        $category = Category::find($post_id)->name;
 
         $design_category = $category;
         return $design_category;

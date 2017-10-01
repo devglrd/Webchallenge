@@ -23,7 +23,7 @@
                         <div class="col-12">
                             <ul class="list-unstyled mb-0">
                                 <li>
-                                    <a href="#">{{ $category }}</a>
+                                    <a href="{{ route('categories.'.$section, $category) }}">{{ $category }}</a>
                                 </li>
                             </ul>
                         </div>

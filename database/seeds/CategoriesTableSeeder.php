@@ -13,7 +13,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories_design')->truncate();
+        DB::table('categories')->truncate();
 
         //insert data
 
@@ -28,23 +28,7 @@ class CategoriesTableSeeder extends Seeder
 
         }
 
-        DB::table('categories_design')->insert($tags);
+        DB::table('categories')->insert($tags);
 
-        DB::table('categories_post')->truncate();
-
-        //insert data
-
-        $tags = [];
-        $faker = Factory::create();
-
-        for ($i = 0; $i <= 10; $i++){
-
-            $tags[] = [
-                'name' => $faker->domainWord(rand(8, 12)),
-            ];
-
-        }
-
-        DB::table('categories_post')->insert($tags);
     }
 }

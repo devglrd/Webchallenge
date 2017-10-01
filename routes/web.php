@@ -39,6 +39,11 @@ Route::get('designs/tags/{name}', 'TagsController@getDesignsByTags')->name('tags
 Route::get('blog/tags/{name}', 'TagsController@getPostsByTags')->name('tags.posts');
 
 
+// Route Categories
+Route::get('blog/categories/{name}', 'CategoriesController@getPostsByCategory')->name('categories.posts');
+Route::get('designs/categories/{name}', 'CategoriesController@getDesignsByCategory')->name('categories.designs');
+
+
 // Route : Users
 Auth::routes();
 Route::get('/account', 'UsersController@getAll')->name('account')->middleware('auth');

@@ -13,7 +13,7 @@ class Post extends Model
     }
 
     public function category(){
-        return $this->belongsTo('App\Category', 'id_postcategory');
+        return $this->belongsTo('App\Category', 'id_category');
     }
 
     public function author(){
