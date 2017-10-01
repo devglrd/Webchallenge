@@ -22,7 +22,7 @@ class DesignsController extends Controller
         //get all disagn
         //$designs = DB::table('designs')->where('state', 2)->orderBy('id', 'desc')->Paginate(4);
 
-        $designs = Design::with('designer')->Paginate(4);
+        $designs = Design::with('designer')->orderBy('id', 'desc')->Paginate(4);
 
         return view('app.statics.designs.index', compact('designs', 'title'));
     }

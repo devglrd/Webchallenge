@@ -70,7 +70,7 @@
         <div class="card my-4">
             <h5 class="card-header">Ajouter un article !</h5>
             <div class="card-body">
-                Ajouter votre article, Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cumque 
+                Ajouter votre article, Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cumque
                 <br>
                 <a type="button" class="btn btn-outline-info mt-4" href="{{ route('blog.create') }}">
                     Ajouter un article

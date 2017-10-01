@@ -22,7 +22,7 @@ class BlogController extends Controller
     {
         $title = "Blog";
 
-        $posts = Post::with('author')->Paginate(4);
+        $posts = Post::with('author')->orderBy('id', 'desc')->Paginate(4);
 
         return view('.app.statics.blog.index', compact('title', 'posts'));
     }
