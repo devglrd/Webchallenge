@@ -18,7 +18,7 @@
                                 <label for="name" class="col-md-4 control-label">Titre du design</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('title') ?: $design->title }}" required autofocus>
+                                    <input id="name" type="text" class="form-control" name="title" value="{{ old('title') ?: $design->title }}" required autofocus>
                                 </div>
                             </div>
 
@@ -26,7 +26,7 @@
                                 <label for="" class="col-md-4 control-label">Parlez nous un peu du design..</label>
 
                                 <div class="col-md-6">
-                                    <textarea style="color: black" id="" class="form-control" name="bio" required>
+                                    <textarea style="color: black" id="" class="form-control" name="content" required>
                                     </textarea>
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                                 <label for="" class="col-md-4 control-label">Niveau de dificulté du design</label>
 
                                 <div class="col-md-6">
-                                    <select name="level_integrator[]">
+                                    <select name="level_design[]">
                                         <option value="1">Intermedaire</option>
                                         <option value="2">Bon</option>
                                         <option value="3">Expert</option>
@@ -44,10 +44,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="" class="col-md-4 control-label">Niveau de dificulté du design</label>
+                                <label for="" class="col-md-4 control-label">Fichier png ou psq</label>
 
                                 <div class="col-md-6">
-                                    <input type="file" multiple>
+                                    <input type="file" multiple disabled>
                                 </div>
                             </div>
 

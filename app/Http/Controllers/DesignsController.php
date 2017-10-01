@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Design;
 use App\DesignCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DesignsController extends Controller
@@ -54,13 +55,24 @@ class DesignsController extends Controller
 
         $this->validate($request, ["title" => "required",
             "content" => "required|string",
-            "level_design" => "required|string"], $message);
+            "level_design" => "required"], $message);
 
 
-        $slug = str_replace(' ', '-', $request->title);
+        $title = $request->title;
 
+        $slug = str_replace(' ', '-', $title);
 
-        return redirect()->route('design.index');
+        Design::create([
+            "title" => $request->title,
+            "slug" => $slug,
+            "content" => $request->content,
+            "level_design" => $request->level_design[0],
+            'state' => 2,
+            'id_designer' => Auth::id(),
+            'id_designcategory' => rand(1, 10)
+        ]);
+
+        return redirect()->route('designs.index');
     }
 
     /**
@@ -78,7 +90,7 @@ class DesignsController extends Controller
         $design = $designAll[0];
 
         // Category
-        $category_id = $design->id;
+        $category_id = $design->id_designcategory;
         $category = $this->getCategory($category_id);
 
         // Tags

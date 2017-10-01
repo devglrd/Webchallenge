@@ -10,7 +10,7 @@
             <div class="col-8">
                 <div class="card" style="">
                     <div class="card-body">
-                        <h4 class="card-title">Ajouter un design</h4>
+                        <h4 class="card-title">Ajouter un article</h4>
                         <form class="form-horizontal" method="POST" action="{{ route('blog.store') }}">
                             {{ csrf_field() }}
 

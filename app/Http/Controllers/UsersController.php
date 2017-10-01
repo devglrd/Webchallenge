@@ -92,7 +92,7 @@ class UsersController extends Controller
         $allSkill = Skill::all();
 
         //les skills qu'il a
-        $userSkill = $this->getSkills();
+        $userSkill = $this->getSkills($id);
 
         $userCurrent = User::where('id', $id)->first();
 
