@@ -35,7 +35,7 @@ class UsersController extends Controller
     }
 
 
-    public function viewProfil($name){
+    public function show($name){
 
         $user = User::where('name', $name)->first();
 

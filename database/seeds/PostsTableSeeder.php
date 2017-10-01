@@ -15,12 +15,12 @@ class PostsTableSeeder extends Seeder
     {
         DB::table('posts')->truncate();
 
-        $posts = [];
+        $data = [];
         $faker = Factory::create();
 
         for( $i = 0 ; $i < 10 ;$i++){
 
-            $posts[] =[
+            $data[] =[
                 'title'             =>  $faker->sentence(),
                 'slug'              =>  $faker->slug(),
                 'content'           =>  $faker->text($maxNbChars = 191),
@@ -32,6 +32,6 @@ class PostsTableSeeder extends Seeder
         }
 
 
-        DB::table('posts')->insert($posts);
+        DB::table('posts')->insert($data);
     }
 }

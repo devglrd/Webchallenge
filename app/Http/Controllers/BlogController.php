@@ -51,8 +51,10 @@ class BlogController extends Controller
             "required" => "Ce :attribute est requis !",
         ];
 
-        $this->validate($request, ["title" => "required",
-            "content" => "required|string"], $message);
+        $this->validate($request, [
+            "title"     => "required",
+            "content"   => "required|string"
+        ], $message);
 
 
         $title = $request->title;
@@ -60,11 +62,11 @@ class BlogController extends Controller
         $slug = str_replace(' ', '-', $title);
 
         Post::create([
-            "title" => $request->title,
-            "slug" => $slug,
-            "content" => $request->content,
-            'id_author' => Auth::id(),
-            'id_postcategory' => rand(1, 10)
+            "title"             => $request->title,
+            "slug"              => $slug,
+            "content"           => $request->content,
+            'id_author'         => Auth::id(),
+            'id_postcategory'   => rand(1, 10)
         ]);
 
         return redirect()->route('blog.index');
@@ -81,7 +83,6 @@ class BlogController extends Controller
         $postAll = Post::where('slug', $slug)->with('author')->get();
 
         $post = $postAll[0];
-
 
         // Category's Post
         $post_id = $post->id_postcategory;

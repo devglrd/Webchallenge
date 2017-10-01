@@ -10,7 +10,7 @@
             <div class="col-md-8">
 
                 <h1 class="my-4">Blog
-                    <small>Tags</small>
+                    <small>Tag : {{ $tag }}</small>
                 </h1>
             @foreach($posts as $post)
                 <!-- Blog Post -->

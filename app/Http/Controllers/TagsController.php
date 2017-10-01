@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 class TagsController extends Controller
 {
 
-    public function show($tag){
+    public function getPostsByTags($tag){
 
         $posts = Tag::where('name', $tag)->with('posts')->first()->posts;
-        return view('.app.statics.blog.tags', compact('posts'));
+        return view('.app.statics.blog.tags', compact('posts', 'tag'));
     }
+
 }

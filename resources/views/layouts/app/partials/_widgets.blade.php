@@ -42,7 +42,7 @@
                         <ul class="list-unstyled mb-0">
                             @foreach($tags as $tag)
                                 <li>
-                                    <a href="{{ route('tags.show', $tag->tag) }}">{{ $tag->tag }}</a>
+                                    <a href="{{ route('tags.posts', $tag->name) }}">{{ $tag->name }}</a>
                                 </li>
                             @endforeach
                         </ul>

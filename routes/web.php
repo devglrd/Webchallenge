@@ -25,14 +25,16 @@ Route::resource('designs', 'DesignsController');
 Route::get('designs/create', 'DesignsController@create')->name('designs.create')->middleware('auth');
 Route::resource('blog', 'BlogController');
 Route::get('blog/create', 'BlogController@create')->name('blog.create')->middleware('auth');
+
 Route::resource('tags', 'TagsController');
+Route::get('blog/tags/{name}', 'TagsController@getPostsByTags')->name('tags.posts');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/view/{name}', 'UsersController@viewProfil')->name('user.show');
+Route::get('/view/{name}', 'UsersController@show')->name('user.show');
 Route::get('/account', 'UsersController@getAll')->name('account')->middleware('auth');
 Route::get('/account/{id}', 'UsersController@edit')->name('user.edit')->middleware('auth');
 Route::post('/account/{id}', 'UsersController@update')->name('user.update')->middleware('auth');
