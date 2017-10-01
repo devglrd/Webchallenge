@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
-
+    //voir le profil de l'utilsateur connecté
     public function getAll(){
 
         $title = 'Votre compte';
@@ -30,12 +30,10 @@ class UsersController extends Controller
 
         //envoie a la vue
 
-        dd($userInfo);
-
         return view('app.statics.users.index', compact('userInfo', 'userDesigns', 'userSkills' , 'userPost', 'title'));
     }
 
-
+    //voir un profil specifique
     public function show($name){
 
         $user = User::where('name', $name)->first();
@@ -50,8 +48,7 @@ class UsersController extends Controller
 
         return view( 'app.statics.users.show', compact('user', 'userDesigns', 'userSkills', 'userPost'));
     }
-
-
+    
     public function getProfilInfo($id){
 
 
@@ -64,9 +61,9 @@ class UsersController extends Controller
     public function getDesigns($id){
 
 
-        $currentDesign = Design::all()->where('id_designer', $id);
+        $currentDesign = User::where('id', $id)->with('designs')->first();
 
-        return $currentDesign;
+        return $currentDesign->designs;
 
     }
 
@@ -83,7 +80,6 @@ class UsersController extends Controller
 
         return $user->posts;
     }
-
 
     public function edit($id){
 
