@@ -84,7 +84,7 @@ class BlogController extends Controller
 
 
         // Category's Post
-        $post_id = $post->id;
+        $post_id = $post->id_postcategory;
         $category = $this->getCategory($post_id);
 
         // Relation Post as Tags
