@@ -20,11 +20,11 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $title = "Blog";
+        $section = "posts";
 
         $posts = Post::with('author')->orderBy('id', 'desc')->Paginate(4);
 
-        return view('.app.statics.blog.index', compact('title', 'posts'));
+        return view('.app.statics.blog.index', compact('section', 'posts'));
     }
 
     /**
@@ -48,12 +48,12 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $message = [
-            "required" => "Ce :attribute est requis !",
+            "required"          => "Ce :attribute est requis !",
         ];
 
         $this->validate($request, [
-            "title"     => "required",
-            "content"   => "required|string"
+            "title"             => "required",
+            "content"           => "required|string"
         ], $message);
 
 
@@ -80,6 +80,7 @@ class BlogController extends Controller
      */
     public function show($slug){
 
+        $section = 'posts';
         $postAll = Post::where('slug', $slug)->with('author')->get();
 
         $post = $postAll[0];
@@ -92,9 +93,9 @@ class BlogController extends Controller
         $tags = $this->getTagsOfPost($slug);
         $countTags = count($tags);
         if($countTags != "0"){
-            return view('.app.statics.blog.show', compact('post','category', 'tags'));
+            return view('.app.statics.blog.show', compact('post','category','section', 'tags'));
         }else{
-            return view('.app.statics.blog.show', compact('post','category'));
+            return view('.app.statics.blog.show', compact('post','category','section'));
         }
 
     }

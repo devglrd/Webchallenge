@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SkillsTableSeeder::class);
         $this->call(PostsTableSeeder::class);
         $this->call(PostsHasTagsSeeder::class);
+        $this->call(DesignsHasTagsSeeder::class);
     }
 }

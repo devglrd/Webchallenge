@@ -6,7 +6,6 @@ use App\Design;
 use App\DesignCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class DesignsController extends Controller
 {
@@ -17,14 +16,11 @@ class DesignsController extends Controller
      */
     public function index()
     {
-        $title = "Designs";
+        $section = "designs";
 
-        //get all disagn
-        //$designs = DB::table('designs')->where('state', 2)->orderBy('id', 'desc')->Paginate(4);
+        $designs = Design::with('author')->orderBy('id', 'desc')->Paginate(4);
 
-        $designs = Design::with('designer')->orderBy('id', 'desc')->Paginate(4);
-
-        return view('app.statics.designs.index', compact('designs', 'title'));
+        return view('app.statics.designs.index', compact('designs', 'section'));
     }
 
     /**
@@ -49,13 +45,15 @@ class DesignsController extends Controller
     public function store(Request $request)
     {
         $message = [
-            "unique" => "Ce que vous voulez ajouté est deja utilisé !",
-            "required" => "Ce :attribute est requis !",
+            "unique"            => "Ce que vous voulez ajouté est deja utilisé !",
+            "required"          => "Ce :attribute est requis !",
         ];
 
-        $this->validate($request, ["title" => "required",
-            "content" => "required|string",
-            "level_design" => "required"], $message);
+        $this->validate($request, [
+            "title"             => "required",
+            "content"           => "required|string",
+            "level_design"      => "required"
+        ], $message);
 
 
         $title = $request->title;
@@ -63,12 +61,12 @@ class DesignsController extends Controller
         $slug = str_replace(' ', '-', $title);
 
         Design::create([
-            "title" => $request->title,
-            "slug" => $slug,
-            "content" => $request->content,
-            "level_design" => $request->level_design[0],
-            'state' => 2,
-            'id_designer' => Auth::id(),
+            "title"             => $request->title,
+            "slug"              => $slug,
+            "content"           => $request->content,
+            "level_design"      => $request->level_design[0],
+            'state'             => 2,
+            'id_designer'       => Auth::id(),
             'id_designcategory' => rand(1, 10)
         ]);
 
@@ -83,10 +81,9 @@ class DesignsController extends Controller
      */
     public function show($slug)
     {
-       // $design = Design::where('slug', $slug)->firstOrFail();
+        $section = "designs";
 
-        $designAll = Design::where('slug', $slug)->with('designer')->get();
-
+        $designAll = Design::where('slug', $slug)->with('author')->get();
         $design = $designAll[0];
 
         // Category
@@ -97,9 +94,9 @@ class DesignsController extends Controller
         $tags = $this->getTags($slug);
         $countTags = count($tags);
         if($countTags != "0"){
-            return view('app.statics.designs.show', compact('design', 'category','tags'));
+            return view('app.statics.designs.show', compact('design', 'category', 'section','tags'));
         }else{
-            return view('app.statics.designs.show', compact('design', 'category'));
+            return view('app.statics.designs.show', compact('design', 'category', 'section'));
         }
 
     }

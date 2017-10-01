@@ -42,7 +42,7 @@
                         <ul class="list-unstyled mb-0">
                             @foreach($tags as $tag)
                                 <li>
-                                    <a href="{{ route('tags.posts', $tag->name) }}">{{ $tag->name }}</a>
+                                    <a href="{{ route('tags.'.$section, $tag->name) }}">{{ $tag->name }}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -52,32 +52,19 @@
         </div>
     @endisset
 
-    @if(!empty(Auth::id()))
-        @if(Route::is('designs.index') or Route::is('designs.create') or Route::is('designs.show') or Route::is('designs.edit'))
         <!-- Side Widget -->
         <div class="card my-4">
-            <h5 class="card-header">Ajouter un design !</h5>
+            <h5 class="card-header">Add {{ $section }}</h5>
             <div class="card-body">
-                Ajouter votre design, si il obtient assez de vote il sera selectionner pour etre integré par des devellopeur cette semaine !
-                <br>
-                <br>
-                <strong>Pour cela vous devez etre designer !</strong>
-                <a type="button" class="btn {{ isset($design) ? 'btn-outline-danger' : 'btn-outline-success' }} mt-4 {{ isset($design) ? 'disabled' : '' }}" href="{{ route('designs.create') }}">
-                    Ajouter un design
-                </a>
+                @if(!empty(Auth::id()))
+                    <a type="button" class="btn mt-4" href="{{ route($section.'.create')}}">
+                        Ajouter un {{ $section }}
+                    </a>
+                @else
+                    <a type="button" class="btn mt-4" href="{{route('login') }}">
+                        Connectez-vous
+                    </a>
+                @endif
             </div>
         </div>
-        @elseif(Route::is('blog.index') or Route::is('blog.create') or Route::is('blog.show') or Route::is('blog.edit'))
-            <div class="card my-4">
-                <h5 class="card-header">Ajouter un article !</h5>
-                <div class="card-body">
-                    Ajouter votre article, Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cumque
-                    <br>
-                    <a type="button" class="btn btn-outline-info mt-4" href="{{ route('blog.create') }}">
-                        Ajouter un article
-                    </a>
-                </div>
-            </div>
-        @endif
-    @endif
 </div>

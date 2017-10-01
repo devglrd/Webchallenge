@@ -23,7 +23,7 @@
                             <a href="{{ route('designs.show', $design->slug) }}" class="btn btn-primary">Read More &rarr;</a>
                         </div>
                         <div class="card-footer text-muted">
-                            Posted on {{ $design->created_at }} by <a href="{{ route('user.show', $design->designer['name']) }}">{{ $design->designer['name'] }}</a>
+                            Posted on {{ $design->created_at }} by <a href="{{ route('user.show', $design->author['name']) }}">{{ $design->author['name'] }}</a>
                         </div>
                     </div>
             @endforeach

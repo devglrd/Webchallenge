@@ -9,7 +9,7 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
-                <h1 class="my-4">Blog
+                <h1 class="my-4 text-capitalize">{{ $section }}
                     {{-- <small>Secondary Text</small> --}}
                 </h1>
 

@@ -1,8 +1,3 @@
-
-    <body>
-    @include('.layouts.app.partials._nav')
-
-
 <!DOCTYPE html>
     <html lang="{{ app()->getLocale() }}">
 
@@ -30,7 +25,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ isset($title) ? $title . ' | ' : '' }}{{ config('app.name') }}</title>
+        <title>{{ isset($section) ? ucfirst($section) . ' | ' : '' }}{{ config('app.name') }}</title>
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" >

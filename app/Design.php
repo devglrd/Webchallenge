@@ -12,7 +12,7 @@ class Design extends Model
         return $this->belongsToMany('App\Tag', 'designs_has_tags', 'id_design','id_tag');
     }
 
-    public function designer(){
-        return $this->belongsTo('App\User', 'id_designer');
+    public function author(){
+        return $this->belongsTo('App\User', 'id_author');
     }
 }

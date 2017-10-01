@@ -21,10 +21,12 @@ class TagsTableSeeder extends Seeder
         $tags = [];
         $faker = Factory::create();
 
-        for ($i = 0; $i <= 30; $i++){
+        for ($i = 0; $i < 10; $i++){
 
             $tags[] = [
                 'name' => $faker->domainWord(rand(8, 12)),
+                'is_design' => rand(0, 1),
+                'is_posts' => rand(0, 1)
             ];
 
         }

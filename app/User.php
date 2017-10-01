@@ -30,12 +30,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Skill', 'users_has_skills','id_user', 'id_skill');
     }
 
-    //un user a un ou plusieurs post
-
     public function posts(){
-
         return $this->hasMany('App\Post', 'id_author');
-
     }
 
+    public function designs(){
+        return $this->hasMany('App\Design', 'id_author');
+    }
 }
