@@ -38,3 +38,6 @@ Route::get('/view/{name}', 'UsersController@show')->name('user.show');
 Route::get('/account', 'UsersController@getAll')->name('account')->middleware('auth');
 Route::get('/account/{id}', 'UsersController@edit')->name('user.edit')->middleware('auth');
 Route::post('/account/{id}', 'UsersController@update')->name('user.update')->middleware('auth');
+
+
+Route::get('/admin', 'BackendController@index')->name('admin')->middleware('auth');
