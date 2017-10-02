@@ -20,18 +20,9 @@ class UsersTableSeeder extends Seeder
 
         $users = [];
 
-        $users[] = [
-            'name'          =>  'alpha',
-            'email'         =>  'alpha@gmail.com',
-            'password'      =>  bcrypt('123456'),
-            'bio'           =>  'Le compte Master',
-            'is_designer'   =>  '1',
-            'is_integrator' =>  '1',
-            'permission'    =>  0,
-        ];
         $faker = Factory::create();
 
-        for ($i = 0; $i <= 10; $i++){
+        for ($i = 0; $i < 10; $i++){
 
             $users[] = [
                 'name' => $faker->name(rand(8, 12)),
