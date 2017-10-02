@@ -23,8 +23,10 @@ class DesignsController extends Controller
 
         $user = User::where('id', Auth::id())->get();
 
-        if ($user[0]->is_designer === 1){
-            $is_designer = 'designer';
+        if(Auth::user()){
+            if ($user[0]->is_designer == 1){
+                $is_designer = 'designer';
+            }
         }
 
         return view('app.statics.designs.index', compact('items', 'section', 'is_designer'));
