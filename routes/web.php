@@ -46,7 +46,7 @@ Route::get('designs/categories/{name}', 'CategoriesController@getDesignsByCatego
 
 // Route : Users
 Auth::routes();
-Route::get('/account', 'UsersController@getAll')->name('account')->middleware('auth');
+Route::get('/profil', 'UsersController@profil')->name('profil')->middleware('auth');
 Route::get('/view/{name}', 'UsersController@show')->name('user.show');
 Route::get('/account/{id}', 'UsersController@edit')->name('user.edit')->middleware('auth');
 Route::post('/account/{id}', 'UsersController@update')->name('user.update')->middleware('auth');

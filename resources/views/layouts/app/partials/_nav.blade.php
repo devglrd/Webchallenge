@@ -41,7 +41,7 @@
                             {{ Auth::user()->name }}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ route('account') }}">Votre compte</a>
+                            <a class="dropdown-item" href="{{ route('profil') }}">Votre compte</a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

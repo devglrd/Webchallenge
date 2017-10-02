@@ -18,7 +18,7 @@
                 @endforeach
             </div>
             <div class="col-12 my-4">
-                <h2 class="d-block">Vos Articles</h2>
+                <h2 class="d-block">Ces Articles</h2>
                 <div class="col-12 d-flex flex-wrap">
                     @foreach($userPost as $post)
                         <div class="col-5 bg-danger text-white m-2 p-2 ">
@@ -38,7 +38,7 @@
                         <div class="col-5 bg-info text-white m-2 p-2">
                             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="my-2">Titre du design</h4>{{ $design->title }}
+                                <h4 class="my-2">{{ $design->title }}</h4>
                                 <p>{{ $design->content }}</p>
                                 <p>Niveau de difficulté : {{ $design->level_design }}</p>
                             </div>

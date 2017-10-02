@@ -12,13 +12,11 @@ use Illuminate\Support\Facades\DB;
 class UsersController extends Controller
 {
     //voir le profil de l'utilsateur connecté
-    public function getAll(){
+    public function profil(){
 
         $title = 'Votre compte';
 
-        $idCurrent = Auth::id();
-
-        $id = $idCurrent;
+        $id = Auth::id();
 
         $userInfo = $this->getProfilInfo($id);
 
@@ -60,10 +58,9 @@ class UsersController extends Controller
 
     public function getDesigns($id){
 
+        $currentDesign = User::where('id', $id)->with('designs')->first()->designs;
 
-        $currentDesign = User::where('id', $id)->with('designs')->first();
-
-        return $currentDesign->designs;
+        return $currentDesign;
 
     }
 

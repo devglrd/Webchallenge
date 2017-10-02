@@ -23,7 +23,7 @@ class DesignsController extends Controller
 
         $user = User::where('id', Auth::id())->get();
 
-        if ($user[0]->is_designer == 1){
+        if ($user[0]->is_designer === 1){
             $is_designer = 'designer';
         }
 
@@ -74,8 +74,8 @@ class DesignsController extends Controller
             "content"           => $request->content,
             "level_design"      => $request->level_design[0],
             'state'             => 2,
-            'id_designer'       => Auth::id(),
-            'id_designcategory' => rand(1, 10)
+            'id_author'         => Auth::id(),
+            'id_category'       => rand(1, 10)
         ]);
 
         return redirect()->route('designs.index');

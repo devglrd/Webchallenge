@@ -35,6 +35,6 @@ class User extends Authenticatable
     }
 
     public function designs(){
-        return $this->hasMany('App\Design', 'id_designer');
+        return $this->hasMany('App\Design', 'id_author');
     }
 }
