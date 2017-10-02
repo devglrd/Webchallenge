@@ -138,7 +138,7 @@ class UsersController extends Controller
         ]);
 
 
-        return redirect()->route('account');
+        return redirect()->route('profil');
 
 
     }
