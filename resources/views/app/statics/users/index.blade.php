@@ -9,7 +9,12 @@
                     @foreach($userInfo as $info)
                         <p class="font-weight-bold">Email : {{ $info->email }}</p>
                         <p class="font-weight-bold">Description : {{ $info->bio }}</p>
-                        <button type="button" class="btn btn-primary">{{ $info->statut }}</button>
+                        <br>
+                        <br>
+                        Vous etes un <br>
+                        <button type="button" class="btn btn-primary">{{ $info->statut }}</button><br>
+                        de niveau <br>
+                        <button type="button" class="btn btn-outline-warning">{{ $info->level_integrator }}</button>
                         <a type="button" class="btn btn-outline-secondary" href="{{ route('user.edit', $id = Auth::id()) }}">
                             Modifier mes informations
                         </a>

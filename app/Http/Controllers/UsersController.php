@@ -99,7 +99,6 @@ class UsersController extends Controller
 
     public function update(Request $request, $id){
 
-
         $inte = 0;
         $designer = 0;
 
@@ -120,7 +119,6 @@ class UsersController extends Controller
 
         $user = Auth::id();
 
-
         for ($i = 0;$i <= $count; $i++){
             DB::table('users_has_skills')->insert([
                 'id_user' => $user,
@@ -134,7 +132,8 @@ class UsersController extends Controller
             "bio" => $request->bio,
             "statut" => $request['state'][0],
             "is_designer" => $designer,
-            "is_integrator" => $inte
+            "is_integrator" => $inte,
+            "level_integrator " => $request->wlevel_integrator[0]
         ]);
 
 

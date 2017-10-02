@@ -32,6 +32,17 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label for="" class="col-md-4 control-label">Categories de l'article</label>
+
+                                <div class="col-md-6">
+                                    <select name="categories[]">
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">

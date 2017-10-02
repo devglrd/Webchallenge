@@ -36,7 +36,9 @@ class BlogController extends Controller
     {
         $post = new Post();
 
-        return view('app.statics.blog.create', compact('post'));
+        $categories = $this->getAllCategory();
+
+        return view('app.statics.blog.create', compact('post', 'categories'));
     }
 
     /**
@@ -66,7 +68,7 @@ class BlogController extends Controller
             "slug"              => $slug,
             "content"           => $request->content,
             'id_author'         => Auth::id(),
-            'id_category'       => rand(1, 10)
+            'id_category'       => $request->categories[0]
         ]);
 
         return redirect()->route('blog.index');
@@ -132,6 +134,14 @@ class BlogController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function getAllCategory(){
+
+        $category = Category::all();
+
+        return $category;
+
     }
 
     public function getTagsOfPost($slug){

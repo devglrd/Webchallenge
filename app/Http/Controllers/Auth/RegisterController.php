@@ -121,6 +121,7 @@ class RegisterController extends Controller
             'statut' => $data['state'][0],
             'is_designer' => $designer,
             'is_integrator' => $inte,
+            'level_integrator' => $data['level_integrator'][0]
         ]);
 
 

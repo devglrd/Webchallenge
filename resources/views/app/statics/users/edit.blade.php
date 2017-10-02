@@ -72,9 +72,9 @@
 
                                             <div class="col-md-6">
                                                 <select name="level_integrator[]">
-                                                    <option value="Rien">Intermedaire</option>
-                                                    <option value="Rien">Bon</option>
-                                                    <option value="Rien">Expert</option>
+                                                    <option value="Intermediaire">Intermedaire</option>
+                                                    <option value="Bon">Bon</option>
+                                                    <option value="Expert">Expert</option>
                                                 </select>
                                             </div>
                                         </div>
