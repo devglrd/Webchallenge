@@ -9,7 +9,7 @@
             <p>
             </p>
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">Dashboard de l'infini et l'au dela</div>
 
                 <div class="panel-body">
                     @if (session('status'))
